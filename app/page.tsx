@@ -1,5 +1,35 @@
 import Image from "next/image";
+import Link from "next/link";
+import styles from "./page.module.css";
+ 
+let states = [{
+  link:"california", 
+display:"California",
+description:"California is a state in the United States"},
 
+{link:"new-york", 
+display:"New York",
+description:"New York is a state in the United States"},
+
+{link:"florida", 
+display:"Florida",
+description:"florida is a state in the United States"},
+
+{link:"ohio", 
+display:"Ohio",
+description:"ohio is a state in the United States"},
+
+{link:"illinois", 
+display:"Illinois",
+description:"illinois is a state in the United States"},
+
+{link:"michigan", 
+display:"michigan",
+description:"michigan is a state in the United States"},
+
+{link:"wisconsin", 
+display:"Wisconsin",
+description:"wisconsin is a state in the United States"}]
 export default function Home() {
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
@@ -38,6 +68,31 @@ export default function Home() {
             center.
           </p>
         </div>
+       
+
+{states.map((state)=>{
+  return (
+  <div style={{border: "1px solid lightgray", borderRadius: "10px", padding:"10px", display:"flex", flexDirection:"column" }}>
+
+
+
+<div style={{margin:"10px"}}>
+  <Image src ={`/${state.link}.png`} alt={state.display} width={100} height={100} />
+   
+</div>
+  <Link href={`/${state.link}`} style={{ fontWeight:"bold"}}>{state.display}</Link>
+<p style={{ fontSize:"12px" }}>{state.description}</p>
+
+<div>
+
+
+</div>
+  </div>
+
+  );
+})}
+
+
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
             className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
